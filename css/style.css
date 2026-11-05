@@ -1,0 +1,261 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --background: #111318;
+    --panel: #1b1e26;
+    --panel-light: #242833;
+    --border: #343946;
+    --text: #e9edf5;
+    --muted: #969eae;
+    --accent: #72b7ff;
+    --green: #69d6a5;
+    --danger: #ff7777;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
+}
+
+header {
+    padding: 22px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+    font-size: 25px;
+    letter-spacing: 0.5px;
+}
+
+header p {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.version {
+    color: var(--accent);
+    background: var(--panel-light);
+    padding: 7px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+main {
+    width: 90%;
+    max-width: 1500px;
+    margin: 25px auto;
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 20px;
+}
+
+.visual-section,
+.editor-section,
+.log-section {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.visual-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 0;
+}
+
+.workspace {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-heading h2 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.section-heading span {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+#canvas {
+    width: 100%;
+    height: 570px;
+    background: #10131a;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    display: block;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+button {
+    background: var(--panel-light);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 9px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.15s;
+}
+
+button:hover {
+    background: #343c4b;
+}
+
+button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+button.primary {
+    background: #2564a5;
+    border-color: #3986cf;
+}
+
+button.primary:hover {
+    background: #347fc4;
+}
+
+.secondary-controls {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.secondary-controls label {
+    color: var(--muted);
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+input[type="range"] {
+    accent-color: var(--accent);
+    width: 150px;
+}
+
+.progress-container {
+    height: 4px;
+    background: var(--panel-light);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#progressBar {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    transition: width 0.1s linear;
+}
+
+#rulesEditor {
+    width: 100%;
+    height: 390px;
+    margin-top: 15px;
+    background: #10131a;
+    color: #bce1ff;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 15px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 13px;
+    line-height: 1.65;
+    resize: vertical;
+    outline: none;
+    tab-size: 4;
+}
+
+#rulesEditor:focus {
+    border-color: var(--accent);
+}
+
+.editor-controls {
+    margin-top: 12px;
+}
+
+.log-section {
+    min-height: 200px;
+}
+
+#log {
+    margin-top: 15px;
+    background: #10131a;
+    border-radius: 7px;
+    padding: 13px;
+    min-height: 150px;
+    max-height: 380px;
+    overflow: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-family: Consolas, monospace;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #c4d4e8;
+}
+
+.log-error {
+    color: var(--danger);
+}
+
+.log-success {
+    color: var(--green);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+@media (max-width: 950px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    #canvas {
+        height: 450px;
+    }
+}
+
+@media (max-width: 550px) {
+    main {
+        width: 96%;
+    }
+
+    header {
+        padding: 18px 3%;
+    }
+
+    #canvas {
+        height: 350px;
+    }
+}
