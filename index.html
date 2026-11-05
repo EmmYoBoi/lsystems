@@ -1,1 +1,96 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-System Workbench</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div>
+            <h1>L-System Workbench</h1>
+            <p>Parametric, stochastic and generalized Lindenmayer systems</p>
+        </div>
+        <span class="version">v1.0</span>
+    </header>
+
+    <main>
+        <section class="visual-section">
+            <div class="section-heading">
+                <h2>Turtle visualization</h2>
+                <span id="generationLabel">Generation 0</span>
+            </div>
+
+            <canvas id="canvas"></canvas>
+
+            <div class="controls">
+                <button id="previousBtn">◀ Previous</button>
+                <button id="playBtn">▶ Play</button>
+                <button id="nextBtn">Next ▶</button>
+                <button id="resetBtn">Reset</button>
+            </div>
+
+            <div class="controls secondary-controls">
+                <label>
+                    Animation speed
+                    <input id="speedInput" type="range"
+                           min="1" max="100" value="50">
+                </label>
+
+                <label>
+                    Generation
+                    <input id="generationInput" type="range"
+                           min="0" max="5" value="0">
+                </label>
+            </div>
+
+            <div class="progress-container">
+                <div id="progressBar"></div>
+            </div>
+        </section>
+
+        <section class="workspace">
+            <div class="editor-section">
+                <div class="section-heading">
+                    <h2>System definition</h2>
+                    <span id="fileStatus">No file loaded</span>
+                </div>
+
+                <textarea id="rulesEditor" spellcheck="false"
+                          placeholder="Write your L-system definition here..."></textarea>
+
+                <div class="controls editor-controls">
+                    <button id="loadBtn">Load .txt</button>
+                    <button id="applyBtn" class="primary">Calculate</button>
+                    <button id="saveBtn">Export .txt</button>
+                    <input type="file" id="fileInput"
+                           accept=".txt,text/plain" hidden>
+                </div>
+            </div>
+
+            <div class="log-section">
+                <div class="section-heading">
+                    <h2>Development log</h2>
+                    <span id="symbolCount">0 symbols</span>
+                </div>
+
+                <div id="log" aria-live="polite">
+                    Load or write an L-system to begin.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        L-System Workbench · A computational exploration of
+        Lindenmayer systems
+    </footer>
+
+    <script src="js/lsystem.js"></script>
+    <script src="js/display.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
